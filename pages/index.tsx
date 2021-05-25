@@ -1,9 +1,5 @@
-import styled from 'styled-components';
+import Home from "./Home";
 
-const Title = styled.h1({
-  color: "red"
-});
+const Index = (): JSX.Element => <Home />;
 
-const Home = (): JSX.Element => <Title>Hey</Title>;
-
-export default Home;
+export default Index;
