@@ -1,8 +1,9 @@
 import { StyledCell } from "./styles";
+import { ICellProps } from "./types";
 
-const Cell = (): JSX.Element => {
+const Cell: React.FC<ICellProps> = ({ isActive, onClick }): JSX.Element => {
   return (
-    <StyledCell />
+    <StyledCell onClick={onClick} isActive={isActive} />
   );
 };
 

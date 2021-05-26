@@ -1,3 +1,6 @@
-export const NumberOfCells = 25;
-export const CellSize = 25;
 
+const NumberOfCellsX = 40; // Variable
+const NumberOfCellsY = 30; // Variable
+const CellSize = 25;
+
+export { NumberOfCellsY, NumberOfCellsX, CellSize };
