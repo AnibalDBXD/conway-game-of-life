@@ -9,3 +9,10 @@ export interface ICoordinates {
 export interface ICell extends ICellProps {
     Component: typeof Cell
 }
+
+export interface ISearchActiveCellPredicate {
+    activeX: number;
+    activeY: number;
+    currentX: number;
+    currentY: number;
+}

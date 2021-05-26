@@ -1,6 +1,8 @@
+import { ISearchActiveCellPredicate } from "./types";
 
-const NumberOfCellsX = 40; // Variable
-const NumberOfCellsY = 30; // Variable
-const CellSize = 25;
+export const NumberOfCellsX = 40; // Variable
+export const NumberOfCellsY = 30; // Variable
+export const CellSize = 25;
 
-export { NumberOfCellsY, NumberOfCellsX, CellSize };
+export const SearchActiveCellPredicate = ({ activeX, activeY, currentX, currentY}: ISearchActiveCellPredicate): boolean => activeX === currentX && activeY === currentY;
+
