@@ -16,3 +16,7 @@ export interface ISearchActiveCellPredicate {
     currentX: number;
     currentY: number;
 }
+
+export interface IChangeCells extends ICoordinates {
+    activeCells: ICoordinates[];
+}

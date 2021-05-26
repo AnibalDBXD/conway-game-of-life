@@ -1,26 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyledTableContainer } from './styles';
 import { ICoordinates } from './types';
-import { SearchActiveCellPredicate, Columns } from "./utils";
+import {  createCell, deleteCell, Columns, getNeighbour, searchActiveCell } from "./utils";
+
+const TIME = 1000;
 
 const Table = (): JSX.Element => {
   const [ActiveCells, setActiveCells] = useState <ICoordinates[]>([]);
 
-  const SearchActiveCell = ({ X: currentX, Y: currentY }: ICoordinates): boolean =>
-    ActiveCells.some(({ X: activeX, Y: activeY }) =>
-      SearchActiveCellPredicate({ activeX, activeY, currentY, currentX }));
-
   const handleCellClick = ({ X, Y }: ICoordinates): void => {
-    if (SearchActiveCell({ X, Y })) {
-      const currentActiveCells = [...ActiveCells];
-      const ActiveCellIndex = currentActiveCells.findIndex(({ X: activeX, Y: activeY }) =>
-        SearchActiveCellPredicate({ activeX, activeY, currentY: Y, currentX: X }));
-      currentActiveCells.splice(ActiveCellIndex, 1);
-      setActiveCells(currentActiveCells);
+    if (searchActiveCell({ X, Y, activeCells:  ActiveCells})) {
+      setActiveCells(deleteCell({ X, Y, activeCells: ActiveCells }));
     } else {
-      setActiveCells([...ActiveCells, {X, Y}]);
+      setActiveCells(createCell({ X, Y, activeCells: ActiveCells }));
     }
   };
+
+  const startGame = (activeCells: ICoordinates[]): NodeJS.Timeout => {
+    return setInterval(() => {
+      //Calculate the neighbour
+      activeCells.forEach(({ X, Y }) => {
+        const neighbour = getNeighbour({ X, Y });
+
+        const activeNeighbour = neighbour.filter(({ X, Y }) => (
+          searchActiveCell({ X, Y, activeCells: ActiveCells})
+        ));
+
+        // eslint-disable-next-line no-console
+        console.log(activeNeighbour);
+      });
+    }, TIME);
+  };
+
+  useEffect(() => {
+    const interval = startGame(ActiveCells);
+
+    return (): void => clearInterval(interval);
+  }, [ActiveCells]);
 
   return (
     <StyledTableContainer hideScrollbars={false} component="main">
@@ -29,7 +45,7 @@ const Table = (): JSX.Element => {
           {Columns.map((Colunm, columnI) => (
             <tr key={columnI}>
               {Colunm.map(({Component: Row}, rowI: number) => (
-                <Row isActive={SearchActiveCell({ X: rowI, Y: columnI})} onClick={(): void => handleCellClick({ X: rowI, Y: columnI})} key={rowI} />
+                <Row isActive={searchActiveCell({ X: rowI, Y: columnI,activeCells: ActiveCells})} onClick={(): void => handleCellClick({ X: rowI, Y: columnI})} key={rowI} />
               ))}
             </tr>
           ))}
