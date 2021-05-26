@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import Cell from './Cell';
 import { StyledTableContainer } from './styles';
 import { ICoordinates } from './types';
-import { NumberOfCellsX, NumberOfCellsY, SearchActiveCellPredicate } from "./utils";
+import { SearchActiveCellPredicate, Columns } from "./utils";
 
 const Table = (): JSX.Element => {
-  const DefaultRows = Array(NumberOfCellsX).fill({ Component: Cell, isActive: false });
-
-  const Columns = Array(NumberOfCellsY).fill(DefaultRows);
-
   const [ActiveCells, setActiveCells] = useState <ICoordinates[]>([]);
 
   const SearchActiveCell = ({ X: currentX, Y: currentY }: ICoordinates): boolean =>
