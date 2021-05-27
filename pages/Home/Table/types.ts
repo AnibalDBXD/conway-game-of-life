@@ -1,6 +1,14 @@
 import { ICellProps } from "./Cell/types";
 import Cell from "./Cell";
 
+export type ICells = boolean[][];
+
+export interface ITable {
+    numberofColumns: number;
+    numberofRows: number;
+    time: number;
+}
+
 export interface ICoordinates {
     X: number;
     Y: number;
@@ -18,5 +26,5 @@ export interface ISearchActiveCellPredicate {
 }
 
 export interface IChangeCells extends ICoordinates {
-    activeCells: ICoordinates[];
+    Cells: ICells;
 }

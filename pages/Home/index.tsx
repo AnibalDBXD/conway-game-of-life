@@ -1,8 +1,12 @@
 import Table from "./Table";
 
 const Home = (): JSX.Element => {
+  const numberofColumns = 10;
+  const numberofRows = 10;
+  const time = 1;
+  
   return (
-    <Table />
+    <Table numberofColumns={numberofColumns} numberofRows={numberofRows} time={time} />
   );
 };
 

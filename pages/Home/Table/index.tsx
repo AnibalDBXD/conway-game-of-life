@@ -1,51 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import Cell from "./Cell";
 import { StyledTableContainer } from './styles';
-import { ICoordinates } from './types';
-import {  createCell, deleteCell, Columns, getNeighbour, searchActiveCell } from "./utils";
+import { ITable } from './types';
+import { createCell } from './utils';
 
-const TIME = 1000;
+const Table = ({ numberofColumns, numberofRows }: ITable): JSX.Element => {
+  const [Columns, setColumns] = useState<boolean[][]>((
+    new Array(numberofColumns)).fill(false)
+    .map(() => new Array(numberofRows).fill(false)));
 
-const Table = (): JSX.Element => {
-  const [ActiveCells, setActiveCells] = useState <ICoordinates[]>([]);
-
-  const handleCellClick = ({ X, Y }: ICoordinates): void => {
-    if (searchActiveCell({ X, Y, activeCells:  ActiveCells})) {
-      setActiveCells(deleteCell({ X, Y, activeCells: ActiveCells }));
-    } else {
-      setActiveCells(createCell({ X, Y, activeCells: ActiveCells }));
-    }
+  const handleCellClick = (X: number, Y: number): void => {
+    setColumns(createCell({ X, Y, Cells: Columns}));
   };
-
-  const startGame = (activeCells: ICoordinates[]): NodeJS.Timeout => {
-    return setInterval(() => {
-      //Calculate the neighbour
-      activeCells.forEach(({ X, Y }) => {
-        const neighbour = getNeighbour({ X, Y });
-
-        const activeNeighbour = neighbour.filter(({ X, Y }) => (
-          searchActiveCell({ X, Y, activeCells: ActiveCells})
-        ));
-
-        // eslint-disable-next-line no-console
-        console.log(activeNeighbour);
-      });
-    }, TIME);
-  };
-
-  useEffect(() => {
-    const interval = startGame(ActiveCells);
-
-    return (): void => clearInterval(interval);
-  }, [ActiveCells]);
 
   return (
     <StyledTableContainer hideScrollbars={false} component="main">
       <table>
         <tbody>
-          {Columns.map((Colunm, columnI) => (
-            <tr key={columnI}>
-              {Colunm.map(({Component: Row}, rowI: number) => (
-                <Row isActive={searchActiveCell({ X: rowI, Y: columnI,activeCells: ActiveCells})} onClick={(): void => handleCellClick({ X: rowI, Y: columnI})} key={rowI} />
+          {Columns.map((Rows, Y) => (
+            <tr key={Y}>
+              {Rows.map((isLive, X) => (
+                <Cell isActive={isLive} onClick={(): void => handleCellClick(X, Y)} key={String(X)+String(Y)} />
               ))}
             </tr>
           ))}
