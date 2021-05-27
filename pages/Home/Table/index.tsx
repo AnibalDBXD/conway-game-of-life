@@ -1,26 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Cell from "./Cell";
 import { StyledTableContainer } from './styles';
 import { ITable } from './types';
-import { createCell } from './utils';
+import { createCell, deleteCell, getNeighbour } from './utils';
 
 const Table = ({ numberofColumns, numberofRows }: ITable): JSX.Element => {
-  const [Columns, setColumns] = useState<boolean[][]>((
+  const [Rows, setRows] = useState<boolean[][]>((
     new Array(numberofColumns)).fill(false)
     .map(() => new Array(numberofRows).fill(false)));
 
   const handleCellClick = (X: number, Y: number): void => {
-    setColumns(createCell({ X, Y, Cells: Columns}));
+    const cellData = { X, Y, Cells: Rows };
+    const cell = Rows[Y][X];
+    if (cell) {
+      setRows(deleteCell(cellData));
+    } else {
+      setRows(createCell(cellData));
+    }
+    const neighbour = getNeighbour(cellData);
   };
 
   return (
     <StyledTableContainer hideScrollbars={false} component="main">
       <table>
         <tbody>
-          {Columns.map((Rows, Y) => (
+          {Rows.map((cells, Y) => (
             <tr key={Y}>
-              {Rows.map((isLive, X) => (
-                <Cell isActive={isLive} onClick={(): void => handleCellClick(X, Y)} key={String(X)+String(Y)} />
+              {cells.map((isLive, X) => (
+                <Cell isActive={isLive} onClick={(): void => handleCellClick(X, Y)} key={String(Y)+String(X)} />
               ))}
             </tr>
           ))}
