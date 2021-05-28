@@ -16,7 +16,7 @@ export const deleteCell = ({ X, Y, Cells }: IChangeCells): ICells => {
 
 };
 
-export const getNeighbour = ({ X, Y, Cells }: IChangeCells): boolean[] => {
+export const getNeighbours = ({ X, Y, Cells }: IChangeCells): boolean[] => {
   const getCell = (cellX: number, cellY: number): boolean => {
     let rows: boolean[];
     if (cellY >= 0) {

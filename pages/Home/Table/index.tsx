@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Cell from "./Cell";
 import { StyledTableContainer } from './styles';
-import { ITable } from './types';
-import { createCell, deleteCell, getNeighbour } from './utils';
+import { ICoordinates, ITable } from './types';
+import { createCell, deleteCell, getNeighbours } from './utils';
 
-const Table = ({ numberofColumns, numberofRows }: ITable): JSX.Element => {
+const Table = ({ numberofColumns, numberofRows, time}: ITable): JSX.Element => {
   const [Rows, setRows] = useState<boolean[][]>((
     new Array(numberofColumns)).fill(false)
     .map(() => new Array(numberofRows).fill(false)));
@@ -17,8 +17,48 @@ const Table = ({ numberofColumns, numberofRows }: ITable): JSX.Element => {
     } else {
       setRows(createCell(cellData));
     }
-    const neighbour = getNeighbour(cellData);
   };
+
+  const startGame = (): NodeJS.Timeout => (
+    setInterval(() => {
+      let gameState = [...Rows];
+
+      const CellsToCreate: ICoordinates[] = [];
+      const CellsToDelete: ICoordinates[] = [];
+
+      Rows.forEach((columns, Y) => {
+        columns.forEach((cell, X) => {
+          const cellData = { X, Y, Cells: Rows };
+          const neighbours = getNeighbours(cellData);
+          const activeNeighbours = neighbours.filter((value) => value).length;
+
+          if (!cell) {
+            if (activeNeighbours === 3) {
+              CellsToCreate.push({ X, Y });
+            }
+          } else {
+            if (activeNeighbours < 2 || activeNeighbours > 3) {
+              CellsToDelete.push({ X, Y });
+            }
+          }
+        });
+      });
+
+
+      CellsToCreate.forEach(({ X, Y }) => {
+        gameState = createCell({ X, Y, Cells: gameState});
+      });
+      CellsToDelete.forEach(({ X, Y }) => {
+        gameState = deleteCell({ X, Y, Cells: gameState});
+      });
+      setRows(gameState);
+    }, time)
+  );
+
+  useEffect(() => {
+    const interval = startGame();
+    return (): void => clearInterval(interval);
+  }, []);
 
   return (
     <StyledTableContainer hideScrollbars={false} component="main">
