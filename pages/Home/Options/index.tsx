@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useRef } from "react";
+import { ChangeEvent, FormEvent, useRef, useEffect } from "react";
 import { IOptions } from "./types";
 
 const Options = ({ setPause, pause, setNumberOfColumnsAndRows, setTime }: IOptions): JSX.Element => {
@@ -30,17 +30,30 @@ const Options = ({ setPause, pause, setNumberOfColumnsAndRows, setTime }: IOptio
     }
   };
 
+  const onPause = (event: KeyboardEvent): void => {
+    if (event.key === " ") {
+      setPause(!pause);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", onPause);
+    return (): void => document.removeEventListener("keydown", onPause);
+  }, [pause]);
+
   return (
-    <form onSubmit={handleSubmit}>
-      <button onClick={(): void => setPause(!pause)}>Pause</button>
-      <input ref={timeRef} placeholder="time" disabled={!pause} onChange={onChangeTime} />
-      <input
-        ref={columnsAndRowsRef}
-        placeholder="set number of columns and rows"
-        disabled={!pause}
-        onChange={onChangeColumnsAndRows} />
-      <button onSubmit={handleSubmit}>Apply</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <button onClick={(): void => setPause(!pause)}>Pause</button>
+        <input ref={timeRef} placeholder="time" disabled={!pause} onChange={onChangeTime} />
+        <input
+          ref={columnsAndRowsRef}
+          placeholder="set number of columns and rows"
+          disabled={!pause}
+          onChange={onChangeColumnsAndRows} />
+        <button onSubmit={handleSubmit}>Apply</button>
+      </form>
+    </>
   );
 };
 
