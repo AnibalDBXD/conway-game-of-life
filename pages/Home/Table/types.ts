@@ -4,9 +4,9 @@ import Cell from "./Cell";
 export type ICells = boolean[][];
 
 export interface ITable {
-    numberofColumns: number;
-    numberofRows: number;
+    numberOfColumnsAndRows: number;
     time: number;
+    pause: boolean;
 }
 
 export interface ICoordinates {

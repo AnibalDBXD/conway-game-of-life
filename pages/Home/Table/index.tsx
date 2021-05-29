@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Cell from "./Cell";
 import { StyledTableContainer } from './styles';
 import { ICoordinates, ITable } from './types';
-import { createCell, deleteCell, getNeighbours } from './utils';
+import { createCell, createColumnsAndRows, deleteCell, getNeighbours } from './utils';
 
-const Table = ({ numberofColumns, numberofRows, time}: ITable): JSX.Element => {
-  const [Rows, setRows] = useState<boolean[][]>((
-    new Array(numberofColumns)).fill(false)
-    .map(() => new Array(numberofRows).fill(false)));
+const Table = ({ numberOfColumnsAndRows, time, pause }: ITable): JSX.Element => {
+  const [Rows, setRows] = useState<boolean[][]>(createColumnsAndRows(numberOfColumnsAndRows));
 
   const handleCellClick = (X: number, Y: number): void => {
     const cellData = { X, Y, Cells: Rows };
@@ -56,9 +54,25 @@ const Table = ({ numberofColumns, numberofRows, time}: ITable): JSX.Element => {
   );
 
   useEffect(() => {
-    const interval = startGame();
-    return (): void => clearInterval(interval);
-  }, []);
+    if (!pause) {
+      const interval = startGame();
+      return (): void => clearInterval(interval);
+    }
+  }, [pause]);
+
+  useEffect(() => {
+    const oldRows = [...Rows];
+    const newRows = createColumnsAndRows(numberOfColumnsAndRows);
+    if (newRows.length > oldRows.length) {
+      oldRows.forEach((column, Y) => {
+        column.forEach((cell, X) => {
+          newRows[Y][X] = cell;
+        }
+        );
+      });
+    }
+    setRows(newRows);
+  }, [numberOfColumnsAndRows]);
 
   return (
     <StyledTableContainer hideScrollbars={false} component="main">

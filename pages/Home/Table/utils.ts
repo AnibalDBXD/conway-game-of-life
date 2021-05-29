@@ -52,3 +52,7 @@ export const getNeighbours = ({ X, Y, Cells }: IChangeCells): boolean[] => {
     neighborBelowAndLeft,
   ];
 };
+
+export const createColumnsAndRows = (newColumnsAndRows: number): boolean[][] => (
+  new Array(newColumnsAndRows)).fill(false)
+  .map(() => new Array(newColumnsAndRows).fill(false));
