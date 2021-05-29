@@ -6,7 +6,7 @@ export type ICells = boolean[][];
 export interface ITable {
     numberOfColumnsAndRows: number;
     time: number;
-    pause: boolean;
+    isPause: boolean;
 }
 
 export interface ICoordinates {

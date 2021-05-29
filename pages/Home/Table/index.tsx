@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Cell from "./Cell";
-import { StyledTableContainer } from './styles';
+import { StyledTableContainer, StyledTable } from './styles';
 import { ICoordinates, ITable } from './types';
 import { createCell, createColumnsAndRows, deleteCell, getNeighbours } from './utils';
 
-const Table = ({ numberOfColumnsAndRows, time, pause }: ITable): JSX.Element => {
+const Table = ({ numberOfColumnsAndRows, time, isPause }: ITable): JSX.Element => {
   const [Rows, setRows] = useState<boolean[][]>(createColumnsAndRows(numberOfColumnsAndRows));
 
   const handleCellClick = (X: number, Y: number): void => {
@@ -54,11 +54,11 @@ const Table = ({ numberOfColumnsAndRows, time, pause }: ITable): JSX.Element => 
   );
 
   useEffect(() => {
-    if (!pause) {
+    if (!isPause) {
       const interval = startGame();
       return (): void => clearInterval(interval);
     }
-  }, [pause]);
+  }, [isPause]);
 
   useEffect(() => {
     const oldRows = [...Rows];
@@ -76,7 +76,7 @@ const Table = ({ numberOfColumnsAndRows, time, pause }: ITable): JSX.Element => 
 
   return (
     <StyledTableContainer hideScrollbars={false} component="main">
-      <table>
+      <StyledTable>
         <tbody>
           {Rows.map((cells, Y) => (
             <tr key={Y}>
@@ -86,7 +86,7 @@ const Table = ({ numberOfColumnsAndRows, time, pause }: ITable): JSX.Element => 
             </tr>
           ))}
         </tbody>
-      </table>
+      </StyledTable>
     </StyledTableContainer>
   );
 };

@@ -1,21 +1,22 @@
 import { useState } from "react";
 import Table from "./Table";
 import Options from "./Options";
+import { StyledHome } from "./styles";
 
 const Home = (): JSX.Element => {
   const [numberOfColumnsAndRows, setNumberOfColumnsAndRows] = useState(10);
   const [time, setTime] = useState(200);
-  const [pause, setPause] = useState(true);
+  const [isPause, setPause] = useState(true);
 
   return (
-    <>
-      <Table pause={pause} numberOfColumnsAndRows={numberOfColumnsAndRows} time={time} />
+    <StyledHome>
+      <Table isPause={isPause} numberOfColumnsAndRows={numberOfColumnsAndRows} time={time} />
       <Options
         setTime={(time: number): void => setTime(time)}
         setNumberOfColumnsAndRows={(number: number): void => setNumberOfColumnsAndRows(number)}
-        pause={pause}
+        isPause={isPause}
         setPause={(value: boolean): void => setPause(value)} />
-    </>
+    </StyledHome>
   );
 };
 
