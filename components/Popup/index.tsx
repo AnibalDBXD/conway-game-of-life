@@ -1,8 +1,8 @@
-import { StyledContainer, StyledPopup, StyledClose } from "./styles";
+import { StyledContainer, StyledPopup, StyledClose, StyledTitleContainer, StyledTitle } from "./styles";
 import { IPopup } from "./types";
 import Close from '../../common/icons/close.svg';
 
-const Popup = ({ trigger, children }: IPopup): JSX.Element => {
+const Popup = ({ trigger, children, title }: IPopup): JSX.Element => {
   return (
     <StyledPopup
       closeOnDocumentClick
@@ -12,7 +12,10 @@ const Popup = ({ trigger, children }: IPopup): JSX.Element => {
     >
       {(close: () => void): JSX.Element => (
         <StyledContainer>
-          <StyledClose onClick={close}><Close /></StyledClose>
+          <StyledTitleContainer>
+            <StyledTitle>{title}</StyledTitle>
+            <StyledClose onClick={close}><Close /></StyledClose>
+          </StyledTitleContainer>
           {children}
         </StyledContainer>
       )}

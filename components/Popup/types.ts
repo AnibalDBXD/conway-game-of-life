@@ -1,4 +1,5 @@
 export interface IPopup {
     trigger: JSX.Element;
-    children: React.ReactNode
+    children: React.ReactNode;
+    title: string;
 }

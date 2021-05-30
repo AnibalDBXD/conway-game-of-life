@@ -32,17 +32,29 @@ export const StyledContainer = styled.section`
 }
 `;
 
+export const StyledTitleContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+`;
+
+export const StyledTitle = styled.h1`
+  margin: 0;
+  font-weight: bold;
+`;
+
 export const StyledClose = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  position: static;
+  right: -10px;
+  top: -10px;
+  position: absolute;
   background: 0;
   border: 0;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
-  margin-left: auto;
-  margin-right: -10px;
-  margin-top: -10px;
 `;
