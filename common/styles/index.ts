@@ -5,7 +5,8 @@ export enum COLORS {
     MINE_SHAFT = "#252525",
     WHITE = "#FFFFFF",
     GRAY = "#8E8E8E",
-    BLACK = "#000000"
+    BLACK = "#000000",
+    WHITE_GRAY = "#FFFFFFAE"
 }
 
 export enum FONT_SIZE {

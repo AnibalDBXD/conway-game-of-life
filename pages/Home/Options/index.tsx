@@ -3,6 +3,7 @@ import { IOptions } from "./types";
 import { StyledForm, StyledOptions, StyledTipsAndRulesContainer, StyledCenterInput } from "./styles";
 import PlayPause from "./PlayPause";
 import Input from "./Input";
+import Button from "./Button";
 
 const MAX_TIME = 10000;
 const MIN_TIME = 100;
@@ -76,9 +77,9 @@ const Options = ({ setPause, isPause, setNumberOfColumnsAndRows, setTime }: IOpt
         </StyledCenterInput>
       </StyledForm>
       <StyledTipsAndRulesContainer>
-        <button>Tips</button>
-        <button onClick={handleSubmit}>Apply changes</button>
-        <button>Rules</button>
+        <Button>Tips</Button>
+        <Button onClick={handleSubmit}>Apply changes</Button>
+        <Button>Rules</Button>
       </StyledTipsAndRulesContainer>
     </StyledOptions>
   );
