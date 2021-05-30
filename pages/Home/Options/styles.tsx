@@ -10,7 +10,7 @@ export const StyledOptions = styled.div`
     flex-direction: column;
 `;
 
-export const StyledForm = styled.form`
+export const StyledForm = styled.div`
     display: flex;
     justify-content: space-evenly;
 `;

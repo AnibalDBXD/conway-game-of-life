@@ -36,13 +36,11 @@ const Options = ({ setPause, isPause, setNumberOfColumnsAndRows, setTime }: IOpt
 
   const handleSubmit = (event?: FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>): void => {
     event?.preventDefault();
-    if (currentTime !== "") {
+    if (currentTime !== "" || Number(currentTime) !== DEFAULT_TIME) {
       setTime(Number(currentTime));
-      setCurrentTime("");
     }
-    if (currentColumnsAndRows !== "") {
+    if (currentColumnsAndRows !== "" || Number(currentColumnsAndRows) !== DEFAULT_COLUMUNS_AND_ROWS) {
       setNumberOfColumnsAndRows(Number(currentColumnsAndRows));
-      setCurrentColumnsAndRows("");
     }
   };
 
@@ -63,7 +61,7 @@ const Options = ({ setPause, isPause, setNumberOfColumnsAndRows, setTime }: IOpt
 
   return (
     <StyledOptions>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm>
         <StyledCenterInput>
           <Input
             label="Time (miliseconds)"
