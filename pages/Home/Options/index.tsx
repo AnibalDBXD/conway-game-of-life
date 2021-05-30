@@ -5,6 +5,7 @@ import PlayPause from "../../../components/PlayPause";
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
 import Tips from "./Tips";
+import Rules from "./Rules";
 
 const MAX_TIME = 10000;
 const MIN_TIME = 100;
@@ -84,7 +85,7 @@ const Options = ({ setPause, isPause, setNumberOfColumnsAndRows, setTime }: IOpt
       <StyledTipsAndRulesContainer>
         <Tips />
         <Button onClick={handleSubmit}>Apply changes</Button>
-        <Button>Rules</Button>
+        <Rules />
       </StyledTipsAndRulesContainer>
     </StyledOptions>
   );

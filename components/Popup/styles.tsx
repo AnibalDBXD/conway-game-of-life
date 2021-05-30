@@ -12,14 +12,14 @@ export const StyledPopup = styled(Popup)`
 `;
 
 export const StyledContainer = styled.section`
-    background-color: ${COLORS.WHITE};
-    border-radius: 16px;
-    width: 50vw;
-    height: 80vh;
-    padding: 16px;
-    box-shadow: 2px 13px 23px -3px rgba(0,0,0,0.79);
-
-    animation: .5s ease-out slideInFromTop forwards;
+  overflow: auto;
+  background-color: ${COLORS.WHITE};
+  border-radius: 16px;
+  width: 50vw;
+  max-height: 90vh;
+  padding: 16px;
+  box-shadow: 2px 13px 23px -3px rgba(0,0,0,0.79);
+  animation: .5s ease-out slideInFromTop forwards;
 
 @keyframes slideInFromTop {
   0% {

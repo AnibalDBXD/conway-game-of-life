@@ -3,7 +3,7 @@ import Popup from "../../../../components/Popup";
 
 const Tips = (): JSX.Element => {
   return (
-    <Popup trigger={<Button>Tips</Button>}>
+    <Popup title="Tips" trigger={<Button>Tips</Button>}>
       <p>Prueba</p>
     </Popup>
   );
