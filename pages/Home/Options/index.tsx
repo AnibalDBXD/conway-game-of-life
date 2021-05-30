@@ -34,10 +34,14 @@ const Options = ({ setPause, isPause, setNumberOfColumnsAndRows, setTime }: IOpt
 
   const handleSubmit = (event?: FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>): void => {
     event?.preventDefault();
-    setTime(Number(currentTime));
-    setCurrentTime("");
-    setNumberOfColumnsAndRows(Number(currentColumnsAndRows));
-    setCurrentColumnsAndRows("");
+    if (currentTime !== "") {
+      setTime(Number(currentTime));
+      setCurrentTime("");
+    }
+    if (currentColumnsAndRows !== "") {
+      setNumberOfColumnsAndRows(Number(currentColumnsAndRows));
+      setCurrentColumnsAndRows("");
+    }
   };
 
   const onPause = (event: KeyboardEvent): void => {

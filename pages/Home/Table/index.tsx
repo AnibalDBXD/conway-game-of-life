@@ -75,7 +75,7 @@ const Table = ({ numberOfColumnsAndRows, time, isPause }: ITable): JSX.Element =
   }, [numberOfColumnsAndRows]);
 
   return (
-    <StyledTableContainer hideScrollbars={false} component="main">
+    <StyledTableContainer hideScrollbars={true} component="main">
       <StyledTable>
         <tbody>
           {Rows.map((cells, Y) => (
