@@ -15,6 +15,12 @@ export const StyledForm = styled.form`
     justify-content: space-evenly;
 `;
 
+export const StyledCenterInput = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
 export const StyledTipsAndRulesContainer = styled.div`
     display: flex;
     align-items: center;

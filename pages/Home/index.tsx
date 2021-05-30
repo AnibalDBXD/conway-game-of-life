@@ -4,7 +4,7 @@ import Options from "./Options";
 import { StyledHome } from "./styles";
 
 const Home = (): JSX.Element => {
-  const [numberOfColumnsAndRows, setNumberOfColumnsAndRows] = useState(10);
+  const [numberOfColumnsAndRows, setNumberOfColumnsAndRows] = useState(16);
   const [time, setTime] = useState(200);
   const [isPause, setPause] = useState(true);
 

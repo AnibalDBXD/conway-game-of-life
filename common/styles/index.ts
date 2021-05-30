@@ -4,5 +4,11 @@ export enum COLORS {
     NIGHT_RIDER = "#313131",
     MINE_SHAFT = "#252525",
     WHITE = "#FFFFFF",
-    GRAY = "#8E8E8E"
+    GRAY = "#8E8E8E",
+    BLACK = "#000000"
+}
+
+export enum FONT_SIZE {
+    NORMAL = "16px",
+    BIG = "24px"
 }

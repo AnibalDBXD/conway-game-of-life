@@ -1,59 +1,52 @@
-import React, { ChangeEvent, FormEvent, useRef, useEffect } from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { IOptions } from "./types";
-import { StyledForm, StyledOptions, StyledTipsAndRulesContainer } from "./styles";
+import { StyledForm, StyledOptions, StyledTipsAndRulesContainer, StyledCenterInput } from "./styles";
 import PlayPause from "./PlayPause";
+import Input from "./Input";
+
+const MAX_TIME = 10000;
+const MIN_TIME = 100;
+const DEFAULT_TIME = 200;
+
+const MIN_COLUMUNS_AND_ROWS = 8;
+const MAX_COLUMUNS_AND_ROWS = 1000;
+const DEFAULT_COLUMUNS_AND_ROWS = 16;
 
 const Options = ({ setPause, isPause, setNumberOfColumnsAndRows, setTime }: IOptions): JSX.Element => {
-  let newTime = null;
-  const MAX_TIME = 10000;
-  const MIN_TIME = 100;
-  const DEFAULT_TIME = 200;
-
-  let newColumnsAndRows = null;
-
-  const timeRef = useRef<HTMLInputElement>(null);
-  const columnsAndRowsRef = useRef<HTMLInputElement>(null);
+  const [currentTime, setCurrentTime] = useState<string | number>(DEFAULT_TIME);
+  const [currentColumnsAndRows, setCurrentColumnsAndRows] = useState<string | number>(DEFAULT_COLUMUNS_AND_ROWS);
 
   const onChangeTime = (event: ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
     const currentTime = Number(event.target.value);
     if (currentTime > MAX_TIME) {
-      timeRef.current.value = MAX_TIME + "";
+      setCurrentTime(MAX_TIME);
       return;
     }
-    if (currentTime < MIN_TIME) {
-      newTime = MIN_TIME;
-      return;
-    }
-    newTime = (currentTime);
+    setCurrentTime(currentTime);
   };
 
   const onChangeColumnsAndRows = (event: ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
-    newColumnsAndRows = ((Number(event.target.value)));
+    setCurrentColumnsAndRows((Number(event.target.value)));
   };
 
   const handleSubmit = (event?: FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>): void => {
     event?.preventDefault();
-    if (newTime) {
-      setTime(newTime);
-      timeRef.current.value = "";
-    }
-    if (newColumnsAndRows) {
-      setNumberOfColumnsAndRows(newColumnsAndRows);
-      columnsAndRowsRef.current.value = "";
-    }
+    setTime(Number(currentTime));
+    setCurrentTime("");
+    setNumberOfColumnsAndRows(Number(currentColumnsAndRows));
+    setCurrentColumnsAndRows("");
   };
 
   const onPause = (event: KeyboardEvent): void => {
     if (event.key === " ") {
-      setPause(!isPause);
+      handlePause();
     }
   };
 
   const handlePause = (): void => {
     setPause(!isPause);
-    handleSubmit();
   };
 
   useEffect(() => {
@@ -64,18 +57,27 @@ const Options = ({ setPause, isPause, setNumberOfColumnsAndRows, setTime }: IOpt
   return (
     <StyledOptions>
       <StyledForm onSubmit={handleSubmit}>
-        <div>
-          <input type="number" ref={timeRef} placeholder="Time in miliseconds" readOnly={!isPause} onChange={onChangeTime} defaultValue={DEFAULT_TIME} min={MIN_TIME} max={MAX_TIME} />
-        </div>
+        <StyledCenterInput>
+          <Input
+            label="Time (miliseconds)"
+            disabled={!isPause}
+            value={currentTime}
+            onChange={onChangeTime}
+            min={MIN_TIME} max={MAX_TIME} />
+        </StyledCenterInput>
         <PlayPause pause={isPause} onClick={(): void => handlePause()} />
-        <input
-          ref={columnsAndRowsRef}
-          placeholder="set number of columns and rows"
-          disabled={!isPause}
-          onChange={onChangeColumnsAndRows} />
+        <StyledCenterInput>
+          <Input
+            label="Columns and Rows"
+            value={currentColumnsAndRows}
+            disabled={!isPause}
+            onChange={onChangeColumnsAndRows}
+            min={MIN_COLUMUNS_AND_ROWS} max={MAX_COLUMUNS_AND_ROWS} />
+        </StyledCenterInput>
       </StyledForm>
       <StyledTipsAndRulesContainer>
         <button>Tips</button>
+        <button onClick={handleSubmit}>Apply changes</button>
         <button>Rules</button>
       </StyledTipsAndRulesContainer>
     </StyledOptions>
