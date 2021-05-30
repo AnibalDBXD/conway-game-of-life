@@ -1,9 +1,10 @@
-import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { IOptions } from "./types";
 import { StyledForm, StyledOptions, StyledTipsAndRulesContainer, StyledCenterInput } from "./styles";
-import PlayPause from "./PlayPause";
-import Input from "./Input";
-import Button from "./Button";
+import PlayPause from "../../../components/PlayPause";
+import Input from "../../../components/Input";
+import Button from "../../../components/Button";
+import Tips from "./Tips";
 
 const MAX_TIME = 10000;
 const MIN_TIME = 100;
@@ -81,7 +82,7 @@ const Options = ({ setPause, isPause, setNumberOfColumnsAndRows, setTime }: IOpt
         </StyledCenterInput>
       </StyledForm>
       <StyledTipsAndRulesContainer>
-        <Button>Tips</Button>
+        <Tips />
         <Button onClick={handleSubmit}>Apply changes</Button>
         <Button>Rules</Button>
       </StyledTipsAndRulesContainer>

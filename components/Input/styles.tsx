@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS, FONT_SIZE } from "../../../../common/styles";
+import { COLORS, FONT_SIZE } from "../../common/styles";
 
 export const StyledInputContainer = styled.div`
   display: flex;

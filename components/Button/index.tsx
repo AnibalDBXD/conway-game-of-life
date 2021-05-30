@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from "../../../../common/styles";
+import { COLORS } from "../../common/styles";
 
 const Button = styled.button`
   padding-left: 16px;

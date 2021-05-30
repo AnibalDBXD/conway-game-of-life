@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from "../../../../common/styles";
+import { COLORS } from "../../common/styles";
 
 export const StyledButton = styled.button<{ pause: boolean }>`
     border: 0;
