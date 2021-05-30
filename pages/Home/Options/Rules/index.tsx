@@ -7,7 +7,7 @@ import { ImageContainer, StyledFooter } from "./styles";
 const Rules = (): JSX.Element => {
   return (
     <Popup title="Rules" trigger={<Button>Rules</Button>}>
-      <p>The universe of the Game of Life is an infinite, two-dimensional <strong>orthogonal</strong> grid of square cells, each of which is in one of two possible states, live or dead</p>
+      <p>This is the Game of Life, it consists on  an infinite, two-dimensional <strong>orthogonal</strong> grid of square cells, each of which is in one of two possible states, live or dead</p>
       <p>Every cell interacts with its eight <strong>neighbours</strong>, which are the cells that are horizontally, vertically, or diagonally adjacent.</p>
       <ImageContainer>
         <Image src="/img/cell.png" alt="Cell without neighbours"
