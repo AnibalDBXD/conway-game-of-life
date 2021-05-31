@@ -7,6 +7,7 @@ export interface IGameState {
     setPause?: (pause: boolean) => void;
     setColumnsAndRows?: (columnsAndRows: number) => void;
     setTime?: (time: number) => void;
+    reset?: () => void;
 }
 
 export interface IGameActions {

@@ -1,4 +1,5 @@
 import GameActions from './GameActions';
+import { initialState } from './GameContext';
 import { IGameState, IGameActions } from './types';
 
 const MenuReducer = (state: IGameState, action: IGameActions): IGameState => {
@@ -20,6 +21,8 @@ const MenuReducer = (state: IGameState, action: IGameActions): IGameState => {
       ...state,
       numberOfColumnsAndRows: payload as number
     };
+  case GameActions.RESET:
+    return initialState;
   default:
     return state;
   }

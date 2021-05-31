@@ -14,6 +14,7 @@ const Options = (): JSX.Element => {
     setTime,
     setColumnsAndRows,
     setPause,
+    reset
   } = useGameContext();
 
   const [currentTime, setCurrentTime] = useState<number>(DEFAULT_VALUES.TIME);
@@ -74,6 +75,7 @@ const Options = (): JSX.Element => {
       <StyledTipsAndRulesContainer>
         <Tips />
         <Button onClick={handleSubmit}>Apply changes</Button>
+        <Button onClick={reset}>Reset</Button>
         <Rules />
       </StyledTipsAndRulesContainer>
     </StyledOptions>

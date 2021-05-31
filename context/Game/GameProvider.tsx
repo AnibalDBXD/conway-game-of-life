@@ -22,6 +22,10 @@ const GameProvider = ({ children }: IProps): JSX.Element => {
     dispatch({ payload: time, type: GameActions.SET_TIME});
   };
 
+  const reset = (): void => {
+    dispatch({ payload: null, type: GameActions.RESET});
+  };
+
   return (
     <GameContext.Provider
       value={{
@@ -31,6 +35,7 @@ const GameProvider = ({ children }: IProps): JSX.Element => {
         setColumnsAndRows,
         time: state.time,
         setTime,
+        reset
       }}>
       {children}
     </GameContext.Provider>
