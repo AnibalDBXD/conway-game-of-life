@@ -12,3 +12,8 @@ export const StyledPatternType = styled.h2`
   text-align: center;
   padding-bottom: 8px;
 `;
+
+export const StyledSmallTip = styled.small`
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+`;

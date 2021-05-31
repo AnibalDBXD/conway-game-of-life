@@ -1,6 +1,6 @@
 import Button from "../../../../components/Button";
 import Popup from "../../../../components/Popup";
-import { StyledTips, StyledPatternType } from "./styles";
+import { StyledTips, StyledPatternType, StyledSmallTip } from "./styles";
 import Pattern from "./Pattern";
 
 const Tips = (): JSX.Element => {
@@ -22,6 +22,7 @@ const Tips = (): JSX.Element => {
           <Pattern name="R pentomino " src="/img/r_pentomino.png"  />
         </li>
       </StyledTips>
+      <StyledSmallTip>You can pause the game by pressing the space bar!</StyledSmallTip>
     </Popup>
   );
 };
