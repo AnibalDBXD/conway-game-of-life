@@ -6,29 +6,22 @@ import Button from "../../../components/Button";
 import Tips from "./Tips";
 import Rules from "./Rules";
 import { useGameContext } from "../../../context/Game/GameContext";
-
-const MAX_TIME = 10000;
-const MIN_TIME = 100;
-const DEFAULT_TIME = 200;
-
-const MIN_COLUMUNS_AND_ROWS = 8;
-const MAX_COLUMUNS_AND_ROWS = 1000;
-const DEFAULT_COLUMUNS_AND_ROWS = 16;
+import { DEFAULT_VALUES, MAX_VALUES, MIN_VALUES } from "../../../context/Game/utilts";
 
 const Options = (): JSX.Element => {
-  const { isPause, setTime, setColumnsAndRows, setPause } = useGameContext();
+  const {
+    isPause,
+    setTime,
+    setColumnsAndRows,
+    setPause,
+  } = useGameContext();
 
-  const [currentTime, setCurrentTime] = useState<string | number>(DEFAULT_TIME);
-  const [currentColumnsAndRows, setCurrentColumnsAndRows] = useState<string | number>(DEFAULT_COLUMUNS_AND_ROWS);
+  const [currentTime, setCurrentTime] = useState<number>(DEFAULT_VALUES.TIME);
+  const [currentColumnsAndRows, setCurrentColumnsAndRows] = useState<number>(DEFAULT_VALUES.COLUMUNS_AND_ROWS);
 
   const onChangeTime = (event: ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
-    const currentTime = Number(event.target.value);
-    if (currentTime > MAX_TIME) {
-      setCurrentTime(MAX_TIME);
-      return;
-    }
-    setCurrentTime(currentTime);
+    setCurrentTime(Number(event.target.value));
   };
 
   const onChangeColumnsAndRows = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -38,12 +31,8 @@ const Options = (): JSX.Element => {
 
   const handleSubmit = (event?: FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>): void => {
     event?.preventDefault();
-    if (currentTime !== "" || Number(currentTime) !== DEFAULT_TIME) {
-      setTime(Number(currentTime));
-    }
-    if (currentColumnsAndRows !== "" || Number(currentColumnsAndRows) !== DEFAULT_COLUMUNS_AND_ROWS) {
-      setColumnsAndRows(Number(currentColumnsAndRows));
-    }
+    setTime(currentTime);
+    setColumnsAndRows(currentColumnsAndRows);
   };
 
   const onPause = (event: KeyboardEvent): void => {
@@ -70,7 +59,7 @@ const Options = (): JSX.Element => {
             disabled={!isPause}
             value={currentTime}
             onChange={onChangeTime}
-            min={MIN_TIME} max={MAX_TIME} />
+            min={MIN_VALUES.TIME} max={MAX_VALUES.TIME} />
         </StyledCenterInput>
         <PlayPause pause={isPause} onClick={(): void => handlePause()} />
         <StyledCenterInput>
@@ -79,7 +68,7 @@ const Options = (): JSX.Element => {
             value={currentColumnsAndRows}
             disabled={!isPause}
             onChange={onChangeColumnsAndRows}
-            min={MIN_COLUMUNS_AND_ROWS} max={MAX_COLUMUNS_AND_ROWS} />
+            min={MIN_VALUES.COLUMUNS_AND_ROWS} max={MAX_VALUES.COLUMUNS_AND_ROWS} />
         </StyledCenterInput>
       </StyledForm>
       <StyledTipsAndRulesContainer>

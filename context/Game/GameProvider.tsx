@@ -30,7 +30,7 @@ const GameProvider = ({ children }: IProps): JSX.Element => {
         numberOfColumnsAndRows: state.numberOfColumnsAndRows,
         setColumnsAndRows,
         time: state.time,
-        setTime
+        setTime,
       }}>
       {children}
     </GameContext.Provider>
