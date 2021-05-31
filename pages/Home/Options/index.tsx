@@ -6,6 +6,7 @@ import Input from "../../../components/Input";
 import Button from "../../../components/Button";
 import Tips from "./Tips";
 import Rules from "./Rules";
+import { useTranslation } from "next-i18next";
 
 const MAX_TIME = 10000;
 const MIN_TIME = 100;
@@ -18,6 +19,8 @@ const DEFAULT_COLUMUNS_AND_ROWS = 16;
 const Options = ({ setPause, isPause, setNumberOfColumnsAndRows, setTime }: IOptions): JSX.Element => {
   const [currentTime, setCurrentTime] = useState<string | number>(DEFAULT_TIME);
   const [currentColumnsAndRows, setCurrentColumnsAndRows] = useState<string | number>(DEFAULT_COLUMUNS_AND_ROWS);
+
+  const { t } = useTranslation("common");
 
   const onChangeTime = (event: ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
@@ -82,7 +85,7 @@ const Options = ({ setPause, isPause, setNumberOfColumnsAndRows, setTime }: IOpt
       </StyledForm>
       <StyledTipsAndRulesContainer>
         <Tips />
-        <Button onClick={handleSubmit}>Apply changes</Button>
+        <Button onClick={handleSubmit}>{t("applyChanges")}</Button>
         <Rules />
       </StyledTipsAndRulesContainer>
     </StyledOptions>
