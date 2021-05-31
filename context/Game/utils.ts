@@ -1,6 +1,6 @@
 export enum DEFAULT_VALUES {
     TIME = 200,
-    COLUMUNS_AND_ROWS = 16
+    COLUMUNS_AND_ROWS = 16,
 }
 
 export enum MIN_VALUES {

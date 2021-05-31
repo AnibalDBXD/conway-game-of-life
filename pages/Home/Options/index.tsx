@@ -6,7 +6,7 @@ import Button from "../../../components/Button";
 import Tips from "./Tips";
 import Rules from "./Rules";
 import { useGameContext } from "../../../context/Game/GameContext";
-import { DEFAULT_VALUES, MAX_VALUES, MIN_VALUES } from "../../../context/Game/utilts";
+import { DEFAULT_VALUES, MAX_VALUES, MIN_VALUES } from "../../../context/Game/utils";
 
 const Options = (): JSX.Element => {
   const {

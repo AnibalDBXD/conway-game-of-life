@@ -6,7 +6,7 @@ import { ICoordinates } from './types';
 import { createCell, createColumnsAndRows, deleteCell, getNeighbours } from './utils';
 
 const Table = (): JSX.Element => {
-  const { isPause, numberOfColumnsAndRows, time} = useGameContext();
+  const { isPause, numberOfColumnsAndRows, time, customGame } = useGameContext();
   const [Rows, setRows] = useState<boolean[][]>(createColumnsAndRows(numberOfColumnsAndRows));
 
   const handleCellClick = (X: number, Y: number): void => {
@@ -87,6 +87,12 @@ const Table = (): JSX.Element => {
     }
     setRows(newRows);
   }, [numberOfColumnsAndRows]);
+
+  useEffect(() => {
+    if (customGame !== null) {
+      setRows(customGame);
+    }
+  }, [customGame]);
 
   return (
     <StyledTableContainer hideScrollbars={true} component="main">

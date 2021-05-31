@@ -1,6 +1,8 @@
+import { createColumnsAndRows } from './../../pages/Home/Table/utils';
 import GameActions from './GameActions';
 import { initialState } from './GameContext';
 import { IGameState, IGameActions } from './types';
+import { DEFAULT_VALUES } from './utils';
 
 const MenuReducer = (state: IGameState, action: IGameActions): IGameState => {
   const { payload, type } = action;
@@ -22,7 +24,10 @@ const MenuReducer = (state: IGameState, action: IGameActions): IGameState => {
       numberOfColumnsAndRows: payload as number
     };
   case GameActions.RESET:
-    return initialState;
+    return {
+      ...initialState,
+      customGame: createColumnsAndRows(DEFAULT_VALUES.COLUMUNS_AND_ROWS)
+    };
   default:
     return state;
   }

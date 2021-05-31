@@ -8,9 +8,11 @@ export interface IGameState {
     setColumnsAndRows?: (columnsAndRows: number) => void;
     setTime?: (time: number) => void;
     reset?: () => void;
+    customGame: boolean[][] | null;
+    setCustomGame?: (newCustomGame: boolean[][] | null) => void;
 }
 
 export interface IGameActions {
     type: GameActions;
-    payload: number | boolean;
+    payload: number | boolean | boolean[][];
   }

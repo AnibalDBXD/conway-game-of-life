@@ -22,6 +22,10 @@ const GameProvider = ({ children }: IProps): JSX.Element => {
     dispatch({ payload: time, type: GameActions.SET_TIME});
   };
 
+  const setCustomGame = (newCustomGame: boolean[][]): void => {
+    dispatch({ payload: newCustomGame, type: GameActions.SET_CUSTOM_GAME});
+  };
+
   const reset = (): void => {
     dispatch({ payload: null, type: GameActions.RESET});
   };
@@ -35,6 +39,8 @@ const GameProvider = ({ children }: IProps): JSX.Element => {
         setColumnsAndRows,
         time: state.time,
         setTime,
+        setCustomGame,
+        customGame: state.customGame,
         reset
       }}>
       {children}
