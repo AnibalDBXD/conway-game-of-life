@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import Button from "../../../../components/Button";
 import Popup from "../../../../components/Popup";
+import { IMAGE_SIZE } from "../utils";
 import { ImageContainer, StyledFooter } from "./styles";
 
 const Rules = (): JSX.Element => {
@@ -11,8 +12,8 @@ const Rules = (): JSX.Element => {
       <p>Every cell interacts with its eight <strong>neighbours</strong>, which are the cells that are horizontally, vertically, or diagonally adjacent.</p>
       <ImageContainer>
         <Image src="/img/cell.png" alt="Cell without neighbours"
-          width={89}
-          height={89} />
+          width={IMAGE_SIZE}
+          height={IMAGE_SIZE} />
       </ImageContainer>
       <p>At each step in time, the following transitions occur:</p>
       <ul>
