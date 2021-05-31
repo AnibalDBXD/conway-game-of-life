@@ -3,12 +3,6 @@ import Cell from "./Cell";
 
 export type ICells = boolean[][];
 
-export interface ITable {
-    numberOfColumnsAndRows: number;
-    time: number;
-    isPause: boolean;
-}
-
 export interface ICoordinates {
     X: number;
     Y: number;

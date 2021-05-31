@@ -1,11 +1,11 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import { IOptions } from "./types";
 import { StyledForm, StyledOptions, StyledTipsAndRulesContainer, StyledCenterInput } from "./styles";
 import PlayPause from "../../../components/PlayPause";
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
 import Tips from "./Tips";
 import Rules from "./Rules";
+import { useGameContext } from "../../../context/Game/GameContext";
 
 const MAX_TIME = 10000;
 const MIN_TIME = 100;
@@ -15,7 +15,9 @@ const MIN_COLUMUNS_AND_ROWS = 8;
 const MAX_COLUMUNS_AND_ROWS = 1000;
 const DEFAULT_COLUMUNS_AND_ROWS = 16;
 
-const Options = ({ setPause, isPause, setNumberOfColumnsAndRows, setTime }: IOptions): JSX.Element => {
+const Options = (): JSX.Element => {
+  const { isPause, setTime, setColumnsAndRows, setPause } = useGameContext();
+
   const [currentTime, setCurrentTime] = useState<string | number>(DEFAULT_TIME);
   const [currentColumnsAndRows, setCurrentColumnsAndRows] = useState<string | number>(DEFAULT_COLUMUNS_AND_ROWS);
 
@@ -40,7 +42,7 @@ const Options = ({ setPause, isPause, setNumberOfColumnsAndRows, setTime }: IOpt
       setTime(Number(currentTime));
     }
     if (currentColumnsAndRows !== "" || Number(currentColumnsAndRows) !== DEFAULT_COLUMUNS_AND_ROWS) {
-      setNumberOfColumnsAndRows(Number(currentColumnsAndRows));
+      setColumnsAndRows(Number(currentColumnsAndRows));
     }
   };
 

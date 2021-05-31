@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useGameContext } from '../../../context/Game/GameContext';
 import Cell from "./Cell";
 import { StyledTableContainer, StyledTable } from './styles';
-import { ICoordinates, ITable } from './types';
+import { ICoordinates } from './types';
 import { createCell, createColumnsAndRows, deleteCell, getNeighbours } from './utils';
 
-const Table = ({ numberOfColumnsAndRows, time, isPause }: ITable): JSX.Element => {
+const Table = (): JSX.Element => {
+  const { isPause, numberOfColumnsAndRows, time} = useGameContext();
   const [Rows, setRows] = useState<boolean[][]>(createColumnsAndRows(numberOfColumnsAndRows));
 
   const handleCellClick = (X: number, Y: number): void => {
