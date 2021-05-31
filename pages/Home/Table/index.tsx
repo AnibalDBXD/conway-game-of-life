@@ -73,6 +73,18 @@ const Table = (): JSX.Element => {
         );
       });
     }
+    if (newRows.length < oldRows.length) {
+      oldRows.forEach((column, Y) => {
+        column.forEach((cell, X) => {
+          if (newRows[Y] !== undefined) {
+            if(newRows[Y][X] !== undefined){
+              newRows[Y][X] = cell;
+            }
+          }
+        }
+        );
+      });
+    }
     setRows(newRows);
   }, [numberOfColumnsAndRows]);
 
