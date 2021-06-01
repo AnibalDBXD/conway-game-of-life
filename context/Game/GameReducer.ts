@@ -28,6 +28,11 @@ const MenuReducer = (state: IGameState, action: IGameActions): IGameState => {
       ...initialState,
       customGame: createColumnsAndRows(DEFAULT_VALUES.COLUMUNS_AND_ROWS)
     };
+  case GameActions.SET_CUSTOM_GAME:
+    return {
+      ...state,
+      customGame: payload as boolean[][]
+    };
   default:
     return state;
   }
