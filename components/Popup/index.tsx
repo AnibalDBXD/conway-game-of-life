@@ -1,6 +1,6 @@
 import { StyledContainer, StyledPopup, StyledClose, StyledTitleContainer, StyledTitle } from "./styles";
 import { IPopup } from "./types";
-import Close from '../../common/icons/close.svg';
+import Close from "../../public/icons/close.svg";
 import { Children, cloneElement, isValidElement } from "react";
 
 const Popup = ({ trigger, children, title }: IPopup): JSX.Element => {
