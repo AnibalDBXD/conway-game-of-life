@@ -2,20 +2,20 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
 
-import Tips from ".";
+import Rules from ".";
 
 export default {
-  title: "Pages/Home/Options/Tips",
-  component: Tips,
+  title: "Pages/Home/Options/Rules",
+  component: Rules,
   parameters: {
     docs: {
       description: {
-        component: "Game tips popup"
+        component: "Game rules popup"
       }
     },
   }
 } as Meta;
 
-const Template: Story = () => <Tips />;
+const Template: Story = () => <Rules />;
 
 export const Primary = Template.bind({});

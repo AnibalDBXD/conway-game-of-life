@@ -11,7 +11,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Table's cell"
+        component: "Table options"
       }
     },
   }
