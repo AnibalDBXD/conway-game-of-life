@@ -9,6 +9,10 @@ describe('<Input />', () => {
     const { asFragment } = render(<Primary />);
     expect(asFragment()).toMatchSnapshot();
   });
+  test("Render as pause", () => {
+    const { asFragment } = render(<Primary pause={true} />);
+    expect(asFragment()).toMatchSnapshot();
+  });
   test("handle click", () => {
     const mockHandler = jest.fn();
     const { getByRole } = render(<Primary onClick={mockHandler} />);
