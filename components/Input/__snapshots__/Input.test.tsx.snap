@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> Render 1`] = `
+<DocumentFragment>
+  .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.c1 {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.c2 {
+  font-size: 24px;
+  outline: 0;
+  border: 0;
+  width: 150px;
+  border-radius: 10px;
+  padding-left: 10px;
+  box-shadow: -1px 10px 41px 1px rgba(0,0,0,0.64);
+}
+
+<div
+    class="c0"
+  >
+    <label
+      class="c1"
+      for="Label text"
+    >
+      Label text
+    </label>
+    <input
+      class="c2"
+      id="Label text"
+      max="10"
+      min="0"
+      type="range"
+      value="5"
+    />
+  </div>
+</DocumentFragment>
+`;

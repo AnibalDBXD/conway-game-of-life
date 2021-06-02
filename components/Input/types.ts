@@ -1,8 +1,6 @@
 import { ChangeEvent } from "react";
 
 export interface IInput {
-    /** input placeholder */
-    placeholder?: string,
     /** It can be written to the input  */
     disabled?: boolean,
     /** This method calls when the input value changes */

@@ -28,7 +28,6 @@ const Template: Story<IInput> = (args: IInput) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  placeholder: "Placeholder",
   disabled: false,
   defaultValue: 5,
   min: 0,

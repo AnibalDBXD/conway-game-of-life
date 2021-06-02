@@ -2,7 +2,6 @@ import { IInput } from "./types";
 import { StyledInputContainer, StyledLabel, StyledInput } from "./styles";
 
 const Input = ({ value, label, disabled, onChange, min, max }: IInput): JSX.Element => (
-
   <StyledInputContainer>
     <StyledLabel htmlFor={label}>{label}</StyledLabel>
     <StyledInput
