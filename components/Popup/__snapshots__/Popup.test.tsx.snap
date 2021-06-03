@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Input /> Render 1`] = `
+exports[`<Popup /> Render 1`] = `
 <DocumentFragment>
   .c0 {
   padding-left: 16px;
@@ -38,7 +38,7 @@ exports[`<Input /> Render 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Input /> Render on popup 1`] = `
+exports[`<Popup /> Render on popup 1`] = `
 <DocumentFragment>
   .c0 {
   padding-left: 16px;

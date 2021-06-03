@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { Primary } from './Popup.stories';
 import "jest-styled-components";
 
-describe('<Input />', () => {
+describe('<Popup />', () => {
   test("Render", () => {
     const { asFragment } = render(<Primary {...Primary.args} />);
     expect(asFragment()).toMatchSnapshot();
