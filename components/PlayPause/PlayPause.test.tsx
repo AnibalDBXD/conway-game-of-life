@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { Primary } from './PlayPause.stories';
 import "jest-styled-components";
 
-describe('<Input />', () => {
+describe('<PlayPause />', () => {
   test("Render", () => {
     const { asFragment } = render(<Primary />);
     expect(asFragment()).toMatchSnapshot();
