@@ -22,6 +22,7 @@ exports[`<PlayPause /> Render 1`] = `
 
 <button
     class="c0"
+    data-testid="PlayPauseButton"
   />
 </DocumentFragment>
 `;
@@ -48,6 +49,7 @@ exports[`<PlayPause /> Render as pause 1`] = `
 
 <button
     class="c0"
+    data-testid="PlayPauseButton"
   />
 </DocumentFragment>
 `;
