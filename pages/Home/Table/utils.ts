@@ -1,8 +1,5 @@
 import { IChangeCells, ICells } from "./types";
 
-export const NumberOfCellsX = 40; // Variable
-export const NumberOfCellsY = 30; // Variable
-
 export const createCell = ({ X, Y, Cells }: IChangeCells): ICells => {
   const newCells = [...Cells];
   newCells[Y][X] = true;

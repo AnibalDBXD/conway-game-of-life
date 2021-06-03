@@ -101,7 +101,7 @@ const Table = (): JSX.Element => {
           {Rows.map((cells, Y) => (
             <tr key={Y}>
               {cells.map((isLive, X) => (
-                <Cell isActive={isLive} onClick={(): void => handleCellClick(X, Y)} key={String(Y)+String(X)} />
+                <Cell isActive={isLive} onClick={(): void => handleCellClick(X, Y)} data-testid={String(Y)+String(X)} key={String(Y)+String(X)} />
               ))}
             </tr>
           ))}
