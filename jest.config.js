@@ -5,6 +5,7 @@ module.exports = {
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
   transform: {
     '^.+\\.(ts|tsx)$': 'babel-jest',
+    "^.+\\.svg$": "jest-svg-transformer"
   },
   watchPlugins: [
     'jest-watch-typeahead/filename',
@@ -12,6 +13,6 @@ module.exports = {
   ],
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
-    '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',
+    '\\.(gif|ttf|eot|png)$': '<rootDir>/test/__mocks__/fileMock.js',
   },
 };
