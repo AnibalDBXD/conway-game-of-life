@@ -7,9 +7,9 @@ import { COLORS } from '../../common/styles';
 import { squarePattern } from './Options/Tips/TipList/utils';
 import { DEFAULT_VALUES } from "../../context/Game/utils";
 
-const CellLive = `background-color: ${COLORS.WHITE}`;
-const CellDeath = `background-color: ${COLORS.MINE_SHAFT}`;
-const WhaitTime = 1000;
+export const CellLive = `background-color: ${COLORS.WHITE}`;
+export const CellDeath = `background-color: ${COLORS.MINE_SHAFT}`;
+export const WhaitTime = 1000;
 
 describe('<Home />', () => {
   beforeEach(() => {
