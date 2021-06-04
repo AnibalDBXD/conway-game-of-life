@@ -1,21 +1,30 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Primary } from './Cell.stories';
+import Cell from '.';
 import "jest-styled-components";
-import { CellDeath, CellLive } from '../../Home.test';
+
+const Id = "id";
+const CellContainer = ({ handleClick }: { handleClick?: () => void}): JSX.Element => (
+  <table>
+    <tbody>
+      <tr>
+        <Cell isActive={false} onClick={handleClick} data-testid={Id} />
+      </tr>
+    </tbody>
+  </table>
+);
 
 describe('<Cell />', () => {
   test('Render', () => {
-    const { asFragment } = render(<Primary />);
+    const { asFragment } = render(<CellContainer />);
     expect(asFragment()).toMatchSnapshot();
   });
-  test('Kill and revive cell', () => {
-    const { getByTestId } = render(<Primary />);
-    const cell00 = getByTestId("00");
+  test('handle Click', () => {
+    const mockHandler = jest.fn();
+    const { getByTestId } = render(<CellContainer handleClick={mockHandler} />);
+    const cell00 = getByTestId(Id);
     fireEvent.click(cell00);
-    expect(cell00).toHaveStyle(CellLive);
-    fireEvent.click(cell00);
-    expect(cell00).toHaveStyle(CellDeath);
+    expect(mockHandler).toBeCalledTimes(1);
   });
 });
