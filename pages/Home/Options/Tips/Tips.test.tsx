@@ -9,7 +9,7 @@ describe('<Tips />', () => {
     const { asFragment } = render(<Primary />);
     expect(asFragment()).toMatchSnapshot();
   });
-  test("Click button and show the tips slider", () => {
+  test("Click button and show the tips", () => {
     const { getByText, getAllByText } = render(<Primary />);
     const tipsButton = getByText("Tips");
     fireEvent.click(tipsButton);
