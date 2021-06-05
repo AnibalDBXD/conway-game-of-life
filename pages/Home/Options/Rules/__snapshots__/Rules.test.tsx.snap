@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Rules /> Render 1`] = `
+<DocumentFragment>
+  .c0 {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: transparent;
+  border: 2px solid #FFFFFF;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.1s ease;
+  -webkit-transition: transform 0.1s ease;
+  transition: transform 0.1s ease;
+}
+
+.c0:hover {
+  border-color: #FFFFFFAE;
+  color: #FFFFFFAE;
+}
+
+.c0:active {
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+}
+
+<button
+    aria-describedby="popup-1"
+    class="c0"
+  >
+    Rules
+  </button>
+</DocumentFragment>
+`;
