@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Options /> Render 1`] = `
+<DocumentFragment>
+  .c0 {
+  background: linear-gradient(180deg,#313131 7%,#252525 19%);
+  height: 20vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c6 {
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: 74px;
+  border-color: transparent transparent transparent #FFFFFF;
+  -webkit-transition: 100ms all ease;
+  transition: 100ms all ease;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 37px 0 37px 60px;
+}
+
+.c6:hover {
+  border-color: transparent transparent transparent #8E8E8E;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.c4 {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.c5 {
+  font-size: 24px;
+  outline: 0;
+  border: 0;
+  width: 150px;
+  border-radius: 10px;
+  padding-left: 10px;
+  box-shadow: -1px 10px 41px 1px rgba(0,0,0,0.64);
+}
+
+.c8 {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: transparent;
+  border: 2px solid #FFFFFF;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.1s ease;
+  -webkit-transition: transform 0.1s ease;
+  transition: transform 0.1s ease;
+}
+
+.c8:hover {
+  border-color: #FFFFFFAE;
+  color: #FFFFFFAE;
+}
+
+.c8:active {
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <label
+            class="c4"
+            for="Time (miliseconds)"
+          >
+            Time (miliseconds)
+          </label>
+          <input
+            class="c5"
+            id="Time (miliseconds)"
+            max="1000"
+            min="100"
+            type="range"
+            value="200"
+          />
+        </div>
+      </div>
+      <button
+        class="c6"
+        data-testid="PlayPauseButton"
+      />
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <label
+            class="c4"
+            for="Columns and Rows"
+          >
+            Columns and Rows
+          </label>
+          <input
+            class="c5"
+            id="Columns and Rows"
+            max="40"
+            min="8"
+            type="range"
+            value="16"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="c7"
+    >
+      <button
+        aria-describedby="popup-1"
+        class="c8"
+      >
+        Tips
+      </button>
+      <button
+        class="c8"
+      >
+        Apply changes
+      </button>
+      <button
+        class="c8"
+      >
+        Reset
+      </button>
+      <button
+        aria-describedby="popup-2"
+        class="c8"
+      >
+        Rules
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

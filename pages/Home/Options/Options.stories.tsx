@@ -3,11 +3,11 @@ import React from "react";
 import { Story, Meta } from "@storybook/react";
 import GameProvider from "../../../context/Game/GameProvider";
 
-import Cell from ".";
+import Options from ".";
 
 export default {
   title: "Pages/Home/Options",
-  component: Cell,
+  component: Options,
   parameters: {
     docs: {
       description: {
@@ -17,6 +17,6 @@ export default {
   }
 } as Meta;
 
-const Template: Story = () => <GameProvider><Cell /></GameProvider>;
+const Template: Story = () => <GameProvider><Options /></GameProvider>;
 
 export const Primary = Template.bind({});
