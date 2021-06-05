@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { Primary } from './Tips.stories';
 import "jest-styled-components";
 
-describe('<Options />', () => {
+describe('<Tips />', () => {
   test('Render', () => {
     const { asFragment } = render(<Primary />);
     expect(asFragment()).toMatchSnapshot();
