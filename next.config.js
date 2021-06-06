@@ -1,6 +1,6 @@
 module.exports = {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  webpack(config, { webpack }) {
+  webpack: (config, { isServer, webpack }) => {
     config.module.rules.push({
       test: /\.svg$/,
       issuer: {
@@ -8,11 +8,15 @@ module.exports = {
       },
       use: ['@svgr/webpack'],
     });
-    config.plugins.push(new webpack.IgnorePlugin(/test/));
 
-    config.node = {
-      fs: 'empty',
-    };
+    config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
+
+    if (!isServer) {
+      config.node = {
+        fs: 'empty'
+      };
+    }
+
     return config;
   },
 };
