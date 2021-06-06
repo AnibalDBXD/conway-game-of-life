@@ -1,5 +1,7 @@
 # Conway's game of life
 
+https://conway-game-of-life-eosin.vercel.app/
+
 # Project initialization
 
 1. ``` $ git clone https://github.com/AnibalDBXD/conway-game-of-life.git```
