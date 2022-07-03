@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import React from 'react';
+import { Story, Meta } from '@storybook/react';
 
-import Cell from '../components/Table/Cell'
-import { ICellProps } from '../components/Table/Cell/types'
+import Cell from '../components/Table/Cell';
+import { ICellProps } from '../components/Table/Cell/types';
 
 export default {
   title: 'Pages/Home/Table/Cell',
@@ -15,16 +15,16 @@ export default {
       },
     },
   },
-} as Meta
+} as Meta;
 
-const Template: Story<ICellProps> = (args: ICellProps) => <Cell {...args} />
+const Template: Story<ICellProps> = (args: ICellProps) => <Cell {...args} />;
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 Primary.args = {
   isActive: false,
-}
+};
 
-export const Secondary = Template.bind({})
+export const Secondary = Template.bind({});
 Primary.args = {
   isActive: true,
-}
+};

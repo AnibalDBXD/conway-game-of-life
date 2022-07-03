@@ -1,12 +1,12 @@
-import { StyledPatternType, StyledTips } from './styles'
-import Pattern from './Pattern'
+import { StyledPatternType, StyledTips } from './styles';
+import Pattern from './Pattern';
 import {
   boatPattern,
   gliderPattern,
   RpentominoPattern,
   spaceShipPattern,
   squarePattern,
-} from './utils'
+} from './utils';
 
 const TipList = ({ close }: { close?: () => void }): JSX.Element => {
   return (
@@ -51,7 +51,7 @@ const TipList = ({ close }: { close?: () => void }): JSX.Element => {
         />
       </li>
     </StyledTips>
-  )
-}
+  );
+};
 
-export default TipList
+export default TipList;

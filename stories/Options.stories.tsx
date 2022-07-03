@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React from 'react'
-import { Story, Meta } from '@storybook/react'
-import GameProvider from '../context/Game/GameProvider'
+import React from 'react';
+import { Story, Meta } from '@storybook/react';
+import GameProvider from '../context/Game/GameProvider';
 
-import Options from '../components/Options'
+import Options from '../components/Options';
 
 export default {
   title: 'Pages/Home/Options',
@@ -15,12 +15,12 @@ export default {
       },
     },
   },
-} as Meta
+} as Meta;
 
 const Template: Story = () => (
   <GameProvider>
     <Options />
   </GameProvider>
-)
+);
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import React from 'react';
+import { Story, Meta } from '@storybook/react';
 
-import Button from '../components/Button'
+import Button from '../components/Button';
 
 export default {
   title: 'Components/Button',
@@ -14,11 +14,11 @@ export default {
       },
     },
   },
-} as Meta
+} as Meta;
 
-const Template: Story = (args) => <Button {...args} />
+const Template: Story = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 Primary.args = {
   children: 'Click',
-}
+};

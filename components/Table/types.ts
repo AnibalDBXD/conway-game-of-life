@@ -1,5 +1,5 @@
-import { ICellProps } from './Cell/types'
-import Cell from './Cell'
+import { ICellProps } from './Cell/types';
+import Cell from './Cell';
 
 export type ICells = boolean[][]
 

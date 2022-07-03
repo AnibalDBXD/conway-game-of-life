@@ -1,9 +1,9 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
-import Button from '../../Button'
-import Popup from '../../Popup'
-import { IMAGE_SIZE } from '../utils'
-import { ImageContainer, StyledFooter } from './styles'
+import Button from '../../Button';
+import Popup from '../../Popup';
+import { IMAGE_SIZE } from '../utils';
+import { ImageContainer, StyledFooter } from './styles';
 
 const Rules = (): JSX.Element => {
   return (
@@ -79,7 +79,7 @@ const Rules = (): JSX.Element => {
         </StyledFooter>
       </>
     </Popup>
-  )
-}
+  );
+};
 
-export default Rules
+export default Rules;

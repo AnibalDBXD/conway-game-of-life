@@ -1,101 +1,101 @@
-import React, { useEffect, useState } from 'react'
-import { useGameContext } from '../../context/Game/GameContext'
-import Cell from './Cell'
-import { StyledTableContainer, StyledTable } from './styles'
-import { ICoordinates } from './types'
+import React, { useEffect, useState } from 'react';
+import { useGameContext } from '../../context/Game/GameContext';
+import Cell from './Cell';
+import { StyledTableContainer, StyledTable } from './styles';
+import { ICoordinates } from './types';
 import {
   createCell,
   createColumnsAndRows,
   deleteCell,
   getNeighbours,
-} from './utils'
+} from './utils';
 
 const Table = (): JSX.Element => {
-  const { isPause, numberOfColumnsAndRows, time, customGame } = useGameContext()
+  const { isPause, numberOfColumnsAndRows, time, customGame } = useGameContext();
   const [Rows, setRows] = useState<boolean[][]>(
     createColumnsAndRows(numberOfColumnsAndRows)
-  )
+  );
 
   const handleCellClick = (X: number, Y: number): void => {
-    const cellData = { X, Y, Cells: Rows }
-    const cell = Rows[Y][X]
+    const cellData = { X, Y, Cells: Rows };
+    const cell = Rows[Y][X];
     if (cell) {
-      setRows(deleteCell(cellData))
+      setRows(deleteCell(cellData));
     } else {
-      setRows(createCell(cellData))
+      setRows(createCell(cellData));
     }
-  }
+  };
 
   const startGame = (): NodeJS.Timeout =>
     setInterval(() => {
-      let gameState = [...Rows]
+      let gameState = [...Rows];
 
-      const CellsToCreate: ICoordinates[] = []
-      const CellsToDelete: ICoordinates[] = []
+      const CellsToCreate: ICoordinates[] = [];
+      const CellsToDelete: ICoordinates[] = [];
 
       Rows.forEach((columns, Y) => {
         columns.forEach((cell, X) => {
-          const cellData = { X, Y, Cells: Rows }
-          const neighbours = getNeighbours(cellData)
-          const activeNeighbours = neighbours.filter((value) => value).length
+          const cellData = { X, Y, Cells: Rows };
+          const neighbours = getNeighbours(cellData);
+          const activeNeighbours = neighbours.filter((value) => value).length;
 
           if (!cell) {
             if (activeNeighbours === 3) {
-              CellsToCreate.push({ X, Y })
+              CellsToCreate.push({ X, Y });
             }
           } else {
             if (activeNeighbours < 2 || activeNeighbours > 3) {
-              CellsToDelete.push({ X, Y })
+              CellsToDelete.push({ X, Y });
             }
           }
-        })
-      })
+        });
+      });
 
       CellsToCreate.forEach(({ X, Y }) => {
-        gameState = createCell({ X, Y, Cells: gameState })
-      })
+        gameState = createCell({ X, Y, Cells: gameState });
+      });
       CellsToDelete.forEach(({ X, Y }) => {
-        gameState = deleteCell({ X, Y, Cells: gameState })
-      })
-      setRows(gameState)
-    }, time)
+        gameState = deleteCell({ X, Y, Cells: gameState });
+      });
+      setRows(gameState);
+    }, time);
 
   useEffect(() => {
     if (!isPause) {
-      const interval = startGame()
-      return (): void => clearInterval(interval)
+      const interval = startGame();
+      return (): void => clearInterval(interval);
     }
-  }, [isPause])
+  }, [isPause]);
 
   useEffect(() => {
-    const oldRows = [...Rows]
-    const newRows = createColumnsAndRows(numberOfColumnsAndRows)
+    const oldRows = [...Rows];
+    const newRows = createColumnsAndRows(numberOfColumnsAndRows);
     if (newRows.length > oldRows.length) {
       oldRows.forEach((column, Y) => {
         column.forEach((cell, X) => {
-          newRows[Y][X] = cell
-        })
-      })
+          newRows[Y][X] = cell;
+        });
+      });
     }
     if (newRows.length < oldRows.length) {
       oldRows.forEach((column, Y) => {
         column.forEach((cell, X) => {
           if (newRows[Y] !== undefined) {
             if (newRows[Y][X] !== undefined) {
-              newRows[Y][X] = cell
+              newRows[Y][X] = cell;
             }
           }
-        })
-      })
+        });
+      });
     }
-    setRows(newRows)
-  }, [numberOfColumnsAndRows])
+    setRows(newRows);
+  }, [numberOfColumnsAndRows]);
 
   useEffect(() => {
     if (customGame !== null) {
-      setRows(customGame)
+      setRows(customGame);
     }
-  }, [customGame])
+  }, [customGame]);
 
   return (
     <StyledTableContainer hideScrollbars={true} component="main">
@@ -116,7 +116,7 @@ const Table = (): JSX.Element => {
         </tbody>
       </StyledTable>
     </StyledTableContainer>
-  )
-}
+  );
+};
 
-export default Table
+export default Table;

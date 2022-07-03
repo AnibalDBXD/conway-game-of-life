@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from "../../common/styles";
+import { COLORS } from '../../common/styles';
 
 const Button = styled.button`
   padding-left: 16px;
@@ -14,13 +14,13 @@ const Button = styled.button`
   cursor: pointer;
   transition: transform 0.1s ease;
 
-  :hover{
-      border-color: ${COLORS.WHITE_GRAY};
-      color: ${COLORS.WHITE_GRAY};
+  :hover {
+    border-color: ${COLORS.WHITE_GRAY};
+    color: ${COLORS.WHITE_GRAY};
   }
 
   :active {
-      transform: scale(0.9);
+    transform: scale(0.9);
   }
 `;
 

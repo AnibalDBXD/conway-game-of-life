@@ -1,5 +1,5 @@
-import Home from '../components/Home'
+import Home from '../components/Home';
 
-const Index = (): JSX.Element => <Home />
+const Index = (): JSX.Element => <Home />;
 
-export default Index
+export default Index;

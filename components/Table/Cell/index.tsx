@@ -1,5 +1,5 @@
-import { StyledCell } from './styles'
-import { ICellProps } from './types'
+import { StyledCell } from './styles';
+import { ICellProps } from './types';
 
 const Cell: React.FC<ICellProps> = ({
   isActive,
@@ -8,7 +8,7 @@ const Cell: React.FC<ICellProps> = ({
 }): JSX.Element => {
   return (
     <StyledCell onClick={onClick} data-testid={testid} isActive={isActive} />
-  )
-}
+  );
+};
 
-export default Cell
+export default Cell;

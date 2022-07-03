@@ -5,19 +5,25 @@ import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<{
-    styles: JSX.Element;
-    html: string;
-    head?: JSX.Element[];
-}> {
+    styles: JSX.Element
+    html: string
+    head?: JSX.Element[]
+  }> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
     try {
-      ctx.renderPage = (): RenderPageResult | Promise<RenderPageResult> => originalRenderPage({
-        enhanceApp: (App) => (props): ReactElement<{
-          sheet: ServerStyleSheet;
-      }> => sheet.collectStyles(<App {...props} />),
-      });
+      ctx.renderPage = (): RenderPageResult | Promise<RenderPageResult> =>
+        originalRenderPage({
+          enhanceApp:
+            (App) =>
+              (
+                props
+              ): ReactElement<{
+              sheet: ServerStyleSheet
+            }> =>
+                sheet.collectStyles(<App {...props} />),
+        });
 
       const initialProps = await Document.getInitialProps(ctx);
       return {

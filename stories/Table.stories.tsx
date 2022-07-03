@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import React from 'react';
+import { Story, Meta } from '@storybook/react';
 
-import Table from '../components/Table'
+import Table from '../components/Table';
 
 export default {
   title: 'Pages/Home/Table',
@@ -14,8 +14,8 @@ export default {
       },
     },
   },
-} as Meta
+} as Meta;
 
-const Template: Story = () => <Table />
+const Template: Story = () => <Table />;
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});

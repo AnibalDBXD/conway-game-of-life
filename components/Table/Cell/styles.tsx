@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import { COLORS } from '../../../common/styles'
-import { ICellProps } from './types'
+import styled from 'styled-components';
+import { COLORS } from '../../../common/styles';
+import { ICellProps } from './types';
 
-export const cellSize = 25
+export const cellSize = 25;
 
 export const StyledCell = styled.td<ICellProps>`
   background-color: ${(props): string =>
@@ -10,4 +10,4 @@ export const StyledCell = styled.td<ICellProps>`
   min-width: ${cellSize | 25}px;
   height: ${cellSize | 25}px;
   cursor: pointer;
-`
+`;

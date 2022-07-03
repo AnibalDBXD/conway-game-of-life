@@ -1,7 +1,7 @@
-import Button from '../../Button'
-import Popup from '../../Popup'
-import { StyledSmallTip } from './styles'
-import TipList from './TipList'
+import Button from '../../Button';
+import Popup from '../../Popup';
+import { StyledSmallTip } from './styles';
+import TipList from './TipList';
 
 const Tips = (): JSX.Element => {
   return (
@@ -11,7 +11,7 @@ const Tips = (): JSX.Element => {
         You can pause the game by pressing the space bar!
       </StyledSmallTip>
     </Popup>
-  )
-}
+  );
+};
 
-export default Tips
+export default Tips;

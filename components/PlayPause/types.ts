@@ -1,4 +1,4 @@
 export interface IPlayPause {
-    onClick: () => void;
-    pause: boolean
+  onClick: () => void
+  pause: boolean
 }

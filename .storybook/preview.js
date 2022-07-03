@@ -1,6 +1,5 @@
-
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -9,8 +8,6 @@ export const parameters = {
   },
   backgrounds: {
     default: 'normal',
-    values: [
-      { name: 'normal', value: '#333333' },
-    ],
+    values: [{ name: 'normal', value: '#333333' }],
   },
 }

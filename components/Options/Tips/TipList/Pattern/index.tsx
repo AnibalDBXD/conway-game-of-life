@@ -1,15 +1,15 @@
-import { useGameContext } from '../../../../../context/Game/GameContext'
-import { IMAGE_SIZE } from '../../../utils'
-import { StyledPattern, StyledImage } from './styles'
-import { IPattern } from './types'
+import { useGameContext } from '../../../../../context/Game/GameContext';
+import { IMAGE_SIZE } from '../../../utils';
+import { StyledPattern, StyledImage } from './styles';
+import { IPattern } from './types';
 
 const Pattern = ({ name, src, pattern, close }: IPattern): JSX.Element => {
-  const { setCustomGame } = useGameContext()
+  const { setCustomGame } = useGameContext();
 
   const handleClick = (): void => {
-    setCustomGame(pattern)
-    close()
-  }
+    setCustomGame(pattern);
+    close();
+  };
 
   return (
     <StyledPattern>
@@ -22,7 +22,7 @@ const Pattern = ({ name, src, pattern, close }: IPattern): JSX.Element => {
         height={IMAGE_SIZE}
       />
     </StyledPattern>
-  )
-}
+  );
+};
 
-export default Pattern
+export default Pattern;

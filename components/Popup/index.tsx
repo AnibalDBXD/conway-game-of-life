@@ -1,25 +1,28 @@
-import { StyledContainer, StyledPopup, StyledClose, StyledTitleContainer, StyledTitle } from "./styles";
-import { IPopup } from "./types";
-import Close from "../../common/styles/icons/close.svg";
-import { Children, cloneElement, isValidElement } from "react";
+import {
+  StyledContainer,
+  StyledPopup,
+  StyledClose,
+  StyledTitleContainer,
+  StyledTitle,
+} from './styles';
+import { IPopup } from './types';
+import Close from '../../common/styles/icons/close.svg';
+import { Children, cloneElement, isValidElement } from 'react';
 
 const Popup = ({ trigger, children, title }: IPopup): JSX.Element => {
   return (
-    <StyledPopup
-      closeOnDocumentClick
-      closeOnEscape
-      modal
-      trigger={trigger}
-    >
+    <StyledPopup closeOnDocumentClick closeOnEscape modal trigger={trigger}>
       {(close: () => void): JSX.Element => (
         <StyledContainer>
           <StyledTitleContainer>
             <StyledTitle>{title}</StyledTitle>
-            <StyledClose onClick={close}><Close /></StyledClose>
+            <StyledClose onClick={close}>
+              <Close />
+            </StyledClose>
           </StyledTitleContainer>
-          {Children.map(children, child => {
+          {Children.map(children, (child) => {
             if (isValidElement(child)) {
-              return cloneElement(child, {close});
+              return cloneElement(child, { close });
             }
             return child;
           })}

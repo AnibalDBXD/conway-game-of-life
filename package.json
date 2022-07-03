@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
-    "format": "prettier --write .",
-    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "lint": "eslint . --fix --ext ts --ext tsx --ext js",
     "test": "jest --watchAll",
     "test-all": "npm run lint && npm run type-check && npm run test",
     "storybook": "start-storybook -s ./public -p 6006",
@@ -17,15 +16,9 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "npm run lint",
       "pre-push": "npm run type-check"
     }
-  },
-  "lint-staged": {
-    "*.@(ts|tsx)": [
-      "npm run lint",
-      "npm run format"
-    ]
   },
   "dependencies": {
     "next": "latest",
@@ -66,7 +59,6 @@
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^0.6.1",
     "lint-staged": "^10.0.10",
-    "prettier": "^2.3.0",
     "react-docgen-typescript": "^1.22.0",
     "typescript": "^4.1.3"
   }

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React, { ChangeEvent, useState } from 'react'
-import { Story, Meta } from '@storybook/react'
+import React, { ChangeEvent, useState } from 'react';
+import { Story, Meta } from '@storybook/react';
 
-import Input from '../components/Input'
-import { IInput } from '../components/Input/types'
+import Input from '../components/Input';
+import { IInput } from '../components/Input/types';
 
 export default {
   title: 'Components/Input',
@@ -15,22 +15,22 @@ export default {
       },
     },
   },
-} as Meta
+} as Meta;
 
 const Template: Story<IInput> = (args: IInput) => {
-  const [value, setValue] = useState<number>()
+  const [value, setValue] = useState<number>();
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    event.preventDefault()
-    setValue(Number(event.target.value))
-  }
-  return <Input value={value} onChange={handleChange} {...args} />
-}
+    event.preventDefault();
+    setValue(Number(event.target.value));
+  };
+  return <Input value={value} onChange={handleChange} {...args} />;
+};
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 Primary.args = {
   disabled: false,
   defaultValue: 5,
   min: 0,
   max: 10,
   label: 'Label text',
-}
+};

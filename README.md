@@ -4,17 +4,18 @@ https://conway-game-of-life-eosin.vercel.app/
 
 # Project initialization
 
-1. ``` $ git clone https://github.com/AnibalDBXD/conway-game-of-life.git```
-2. ``` $ cd conway-game-of-life ```
-4. ``` npm install ```
-5. ``` npm run dev ```
+1. ` $ git clone https://github.com/AnibalDBXD/conway-game-of-life.git`
+2. `$ cd conway-game-of-life`
+3. `npm install`
+4. `npm run dev`
 
 # Run tests
 
-``` $ npm run test```
+` $ npm run test`
 
 # Run storybook
-``` $ npm run storybook```
+
+` $ npm run storybook`
 
 # What is it?
 

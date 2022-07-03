@@ -1,6 +1,5 @@
-
-import "../common/styles/globals.css";
-import { AppProps } from "next/app";
+import '../common/styles/globals.css';
+import { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return <Component {...pageProps} />;

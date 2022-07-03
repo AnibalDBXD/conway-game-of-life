@@ -24,11 +24,11 @@
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       {
-          "allowExpressions": false,
-          "allowTypedFunctionExpressions": true,
-          "allowHigherOrderFunctions": true,
-          "allowDirectConstAssertionInArrowFunctions": true,
-          "allowConciseArrowFunctionExpressionsStartingWithVoid": true
+        "allowExpressions": false,
+        "allowTypedFunctionExpressions": true,
+        "allowHigherOrderFunctions": true,
+        "allowDirectConstAssertionInArrowFunctions": true,
+        "allowConciseArrowFunctionExpressionsStartingWithVoid": true
       }
     ],
     "@typescript-eslint/explicit-member-accessibility": 0,
@@ -45,12 +45,12 @@
     "@typescript-eslint/naming-convention": [
       "error",
       {
-          "selector": "interface",
-          "format": ["PascalCase"],
-          "custom": {
-              "regex": "^I[A-Z]",
-              "match": true
-          }
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
       }
     ],
     "react/display-name": 0,

@@ -1,65 +1,65 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import {
   StyledForm,
   StyledOptions,
   StyledTipsAndRulesContainer,
   StyledCenterInput,
-} from './styles'
-import PlayPause from '../PlayPause'
-import Input from '../Input'
-import Button from '../Button'
-import Tips from './Tips'
-import Rules from './Rules'
-import { useGameContext } from '../../context/Game/GameContext'
+} from './styles';
+import PlayPause from '../PlayPause';
+import Input from '../Input';
+import Button from '../Button';
+import Tips from './Tips';
+import Rules from './Rules';
+import { useGameContext } from '../../context/Game/GameContext';
 import {
   DEFAULT_VALUES,
   MAX_VALUES,
   MIN_VALUES,
-} from '../../context/Game/utils'
+} from '../../context/Game/utils';
 
 const Options = (): JSX.Element => {
   const { isPause, setTime, setColumnsAndRows, setPause, reset } =
-    useGameContext()
+    useGameContext();
 
-  const [currentTime, setCurrentTime] = useState<number>(DEFAULT_VALUES.TIME)
+  const [currentTime, setCurrentTime] = useState<number>(DEFAULT_VALUES.TIME);
   const [currentColumnsAndRows, setCurrentColumnsAndRows] = useState<number>(
     DEFAULT_VALUES.COLUMUNS_AND_ROWS
-  )
+  );
 
   const onChangeTime = (event: ChangeEvent<HTMLInputElement>): void => {
-    event.preventDefault()
-    setCurrentTime(Number(event.target.value))
-  }
+    event.preventDefault();
+    setCurrentTime(Number(event.target.value));
+  };
 
   const onChangeColumnsAndRows = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
-    event.preventDefault()
-    setCurrentColumnsAndRows(Number(event.target.value))
-  }
+    event.preventDefault();
+    setCurrentColumnsAndRows(Number(event.target.value));
+  };
 
   const handleSubmit = (
     event?: FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>
   ): void => {
-    event?.preventDefault()
-    setTime(currentTime)
-    setColumnsAndRows(currentColumnsAndRows)
-  }
+    event?.preventDefault();
+    setTime(currentTime);
+    setColumnsAndRows(currentColumnsAndRows);
+  };
 
   const onPause = (event: KeyboardEvent): void => {
     if (event.key === ' ') {
-      handlePause()
+      handlePause();
     }
-  }
+  };
 
   const handlePause = (): void => {
-    setPause(!isPause)
-  }
+    setPause(!isPause);
+  };
 
   useEffect(() => {
-    document.addEventListener('keydown', onPause)
-    return (): void => document.removeEventListener('keydown', onPause)
-  }, [isPause])
+    document.addEventListener('keydown', onPause);
+    return (): void => document.removeEventListener('keydown', onPause);
+  }, [isPause]);
 
   return (
     <StyledOptions>
@@ -93,7 +93,7 @@ const Options = (): JSX.Element => {
         <Rules />
       </StyledTipsAndRulesContainer>
     </StyledOptions>
-  )
-}
+  );
+};
 
-export default Options
+export default Options;

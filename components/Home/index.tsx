@@ -1,7 +1,7 @@
-import Table from '../Table'
-import Options from '../Options'
-import { StyledHome } from './styles'
-import GameProvider from '../../context/Game/GameProvider'
+import Table from '../Table';
+import Options from '../Options';
+import { StyledHome } from './styles';
+import GameProvider from '../../context/Game/GameProvider';
 
 const Home = (): JSX.Element => {
   return (
@@ -11,7 +11,7 @@ const Home = (): JSX.Element => {
         <Options />
       </StyledHome>
     </GameProvider>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
